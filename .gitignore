@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+*.log
+
+uv.lock
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.env
+
+# Datasets (download separately, see README)
+data/*.csv
+data/data_1/
+data/data_2/
+
+# Runtime artifacts
+catboost_info/
+output/*.csv

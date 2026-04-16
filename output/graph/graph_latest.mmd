@@ -1,0 +1,28 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	profiler(profiler)
+	ft_generator(ft_generator)
+	planner(planner)
+	coder(coder)
+	executor(executor)
+	judge(judge)
+	writer(writer)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> profiler;
+	coder --> executor;
+	executor -. &nbsp;retry&nbsp; .-> coder;
+	executor -. &nbsp;fallback&nbsp; .-> judge;
+	ft_generator --> planner;
+	judge -. &nbsp;continue&nbsp; .-> planner;
+	judge -. &nbsp;done&nbsp; .-> writer;
+	planner --> coder;
+	profiler --> ft_generator;
+	writer --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
